@@ -30,11 +30,6 @@ st.title("🏠 Credit Card fraud detection")
 st.markdown("Fill in the details below to predict the creditcard fraud.")
 
 # === User Input ===
-POSTED_BY = st.selectbox(
-    "Posted By",
-    options=["Owner", "Dealer", "Builder"]
-)
-
 
 Time = st.number_input("Time", value=13.0189)
 V1 = st.number_input("V1", value=0.686132504)
@@ -114,6 +109,6 @@ if st.button("Predict"):
     full_input_2d = input_df.reshape(1, -1)
 
     # Predict
-    predicted_value = model.predict(full_input_2d)
+    predicted_value = model.predict(input_df)
 
     st.success(f"📊 Predicted Fraud Value: {predicted_value[0].item():,.2f}")
